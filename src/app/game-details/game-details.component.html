@@ -1,0 +1,75 @@
+<section class="bg-main pt-3 min-vh-100 text-white-50">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4">
+        <div>
+          <img [src]="gameDetails.thumbnail" alt="" class="w-100 mb-3">
+        </div>
+        <div class="d-flex justify-content-around align-items-center">
+          <span class="px-3">Free</span>
+          <a class="btn btn-primary w-100" [href]="gameDetails.game_url">Play Now</a>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div>
+          <h1>{{gameDetails.title}}</h1>
+          <h6 class="fw-bold">About {{gameDetails.title}}</h6>
+          <p class="fs-5">{{gameDetails.description}}</p>
+
+          <h6 class="fw-bold">Minimum System Requirements</h6>
+          <ul class="list-unstyled">
+            <li class="mt-2"><span class="fw-bold">Graphics: </span>{{gameDetails.minimum_system_requirements?.graphics}}</li>
+            <li class="mt-2"><span class="fw-bold">Memory: </span>{{gameDetails.minimum_system_requirements?.memory}}</li>
+            <li class="mt-2"><span class="fw-bold">OS: </span>{{gameDetails.minimum_system_requirements?.os}}</li>
+            <li class="mt-2"><span class="fw-bold">Processor: </span>{{gameDetails.minimum_system_requirements?.processor}}</li>
+            <li class="mt-2"><span class="fw-bold">Storage: </span>{{gameDetails.minimum_system_requirements?.storage}}</li>
+          </ul>
+
+          <h6 class="fw-bold mt-4 mb-3">{{gameDetails.title}} Screenshots</h6>
+
+          <owl-carousel-o [options]="customOptions">
+
+            <ng-container *ngFor="let image of gameDetails.screenshots">
+              <ng-template carouselSlide [id]="image.id">
+                <img [src]="image.image" alt="carousel img">
+              </ng-template>
+            </ng-container>
+
+          </owl-carousel-o>
+
+          <h6 class="fw-bold mt-4">Additional Information</h6>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <p class="text-secondary m-0">Title</p>
+              <p>{{gameDetails.title}}</p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-secondary m-0">Developer</p>
+              <p>{{gameDetails.developer}}</p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-secondary m-0">Publisher</p>
+              <p>{{gameDetails.publisher}}</p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-secondary m-0">Release Date</p>
+              <p>{{gameDetails.release_date}}</p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-secondary m-0">Genre</p>
+              <p>{{gameDetails.genre}}</p>
+            </div>
+            <div class="col-md-4">
+              <p class="text-secondary m-0">Platform</p>
+              <p>{{gameDetails.platform}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

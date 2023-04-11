@@ -1,0 +1,77 @@
+<div class="bg-main shadow-lg border-bottom border-dark border-1">
+  <div class="container">
+
+      <nav class="navbar navbar-expand-md navbar-dark align-items-center">
+          <a class="navbar-brand me-5" href="#">
+            <img src="../../assets/logo.png" alt="logo" width="70">
+            <span>Game Over</span>
+          </a>
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navList" aria-controls="navList"
+              aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-between text-center" id="navList">
+              <ul class="navbar-nav align-items-center" *ngIf="isLogged">
+                  <li class="nav-item mb-2 mb-md-0">
+                      <a class="nav-link" routerLink="home">Home</a>
+                  </li>
+                  <li class="nav-item mb-2 mb-md-0">
+                      <a class="nav-link" [routerLink]="['games', 'all', '']">All</a>
+                  </li>
+                  <li class="nav-item mb-2 mb-md-0 dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Platforms
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" [routerLink]="['games', 'platform', 'pc']">PC</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'platform', 'browser']">Browser</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item mb-2 mb-md-0 dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Sort-By
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" [routerLink]="['games', 'sort-by', 'release-date']">Release-Date</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'sort-by', 'popularity']">Popularity</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'sort-by', 'alphabetical']">Alphabetical</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'sort-by', 'relevance']">Relevance</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item mb-2 mb-md-0 dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'racing']">Racing</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'sports']">Sports</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'social']">Social</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'shooter']">Shooter</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'open-world']">Open-World</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'zombie']">Zombie</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'fantasy']">Fantasy</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'action-rpg']">Action-RPG</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'action']">Action</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'flight']">Flight</a></li>
+                      <li><a class="dropdown-item" [routerLink]="['games', 'category', 'battle-royale']">Battle-Royale</a></li>
+                    </ul>
+                  </li>
+              </ul>
+
+              <ul class="navbar-nav align-items-center ms-auto">
+                  <li class="nav-item mb-2 mb-md-0 me-md-3" *ngIf="!isLogged">
+                      <a class="nav-link" routerLink="login">Login</a>
+                  </li>
+                  <li class="nav-item mb-2 mb-md-0 me-md-3" *ngIf="!isLogged">
+                      <a class="nav-link border border-1 border-primary rounded-3 px-3 text-primary w-100" routerLink="register">Join Free</a>
+                  </li>
+                  <li class="nav-item mb-2 mb-md-0" *ngIf="isLogged">
+                      <a class="nav-link border border-1 border-primary rounded-3 px-3 text-primary w-100 cursor-pointer" (click)="logout()">Logout</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+
+  </div>
+</div>

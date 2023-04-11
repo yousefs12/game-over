@@ -1,0 +1,82 @@
+<div class="bg-main min-vh-100">
+  <div class="container p-lg-5">
+    <div class="row g-0">
+
+      <div class="col-md-6 d-none d-md-block">
+        <img src="../../assets/gaming.ebaf2ffc84f4451d.jpg" alt="" class="w-100 h-100">
+      </div>
+
+      <div class="col-md-6">
+        <div class="bg-sec w-100 h-100 px-4 py-5">
+
+          <form [formGroup]="registerForm" (ngSubmit)="register()" class="border-bottom border-secondary border-1">
+            <div class="row justify-content-center align-items-center gy-3 gx-4">
+
+              <div class="col-12">
+                <h1 class="h4 text-secondary text-center">Create My Account!</h1>
+              </div>
+
+              <div class="col-6">
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" formControlName="first_name" class="form-control text-white bg-dark border-0">
+                <div class="alert alert-danger mt-2" *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched">
+                  <p *ngIf="registerForm.get('first_name')?.getError('required')" class="m-0">Please enter your first name.</p>
+                  <p *ngIf="registerForm.get('first_name')?.getError('minlength')" class="m-0">Minimun Length is 5 characters.</p>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" formControlName="last_name" class="form-control text-white bg-dark border-0">
+                <div class="alert alert-danger mt-2" *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched">
+                  <p *ngIf="registerForm.get('last_name')?.getError('required')" class="m-0">Please enter your last name.</p>
+                  <p *ngIf="registerForm.get('last_name')?.getError('minlength')" class="m-0">Minimun Length is 5 characters.</p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <input type="email" name="email" id="email" placeholder="Email Address" formControlName="email" class="form-control text-white bg-dark border-0">
+                <div class="alert alert-danger mt-2" *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                  <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">Please enter your email.</p>
+                  <p *ngIf="registerForm.get('email')?.getError('email')" class="m-0">Please enter a valid email.</p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <input type="number" name="age" id="age" placeholder="Age" formControlName="age" class="form-control text-white bg-dark border-0">
+                <div class="alert alert-danger mt-2" *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.touched">
+                  <p *ngIf="registerForm.get('age')?.getError('required')" class="m-0">Please enter your age.</p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <input type="password" name="passworrd" id="password" placeholder="Password" formControlName="password" class="form-control text-white bg-dark border-0">
+                <div class="alert alert-danger mt-2" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+                  <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">Please enter a password.</p>
+                  <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">Please enter a strong password.</p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-secondary w-100 border border-1 border-dark">Create Account</button>
+              </div>
+
+              <div class="col-12">
+                <p class="text-secondary text-sm text-center">This site is protected by reCAPTCHA and the Google <span class="text-decoration-underline">Privacy Policy</span> and <span class="text-decoration-underline">Terms of Service</span> apply.</p>
+              </div>
+
+            </div>
+          </form>
+
+          <div class="alert alert-danger text-center" *ngIf="registerError">
+            <p class="m-0">{{registerError}}</p>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center mt-2">
+            <span class="text-secondary">Already a member?</span>
+            <button class="btn text-primary text-sm" routerLink="/login">Login<i class="fas fa-chevron-right small"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

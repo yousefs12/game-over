@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-color: #272b30 !important;
+  --sec-color: #32383e !important;
+  --sec-color2: #1c1e22 !important;
+}
+
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+
+.bg-sec {
+  background-color: var(--sec-color) !important;
+}
+
+.bg-sec2 {
+  background-color: var(--sec-color2);
+}
+
+.text-sm {
+  font-size: 14px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
